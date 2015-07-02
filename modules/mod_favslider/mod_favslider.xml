@@ -1,0 +1,1070 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="3.0"
+	client="site"
+	method="upgrade">
+	<name>FavSlider Responsive Slideshow</name>
+	<author>FavThemes</author>
+	<version>1.7</version>
+	<creationDate>2013</creationDate>
+	<authorUrl>http://www.favthemes.com</authorUrl>
+	<authoremail>hello@favthemes.com</authoremail>
+	<copyright>Copyright (C) FavThemes. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+	<description>
+	<![CDATA[
+
+<a href="http://extensions.favthemes.com/favslider" target="_blank"><strong>FavSlider</strong></a> is a free responsive Joomla! module that let's you use images and video to create a slideshow with 4 default layouts and customize each slide with 100+ module parameters.
+
+For more info, please see the <a href="http://extensions.favthemes.com/favslider" target="_blank" style="font-weight: bold;">demo and documentation</a> for the FavSlider module.
+<br/><br/>
+
+<a href="http://extensions.favthemes.com/favslider" target="_blank">
+	<img src="../modules/mod_favslider/theme/img/favslider.jpg" alt="FavSlider Reponsive Slideshow">
+</a>
+
+<br/><br/>
+Copyright &#169; 2012-2015 <a href="http://www.favthemes.com" target="_blank" style="font-weight: bold;">FavThemes</a>.
+<br/><br/>
+
+<link rel="stylesheet" href="../modules/mod_favslider/theme/css/admin.css" type="text/css" />
+<script src="../modules/mod_favslider/theme/js/jscolor/jscolor.js" type="text/javascript"></script>
+]]>
+	</description>
+
+	<files>
+		<filename module="mod_favslider">mod_favslider.php</filename>
+		<filename>mod_favslider.inc</filename>
+		<filename>mod_favslider.xml</filename>
+		<filename>index.html</filename>
+		<filename>License.txt</filename>
+		<folder>demo</folder>
+		<folder>theme/js</folder>
+		<folder>theme/css</folder>
+		<folder>theme/icons</folder>
+		<folder>theme/img</folder>
+	</files>
+
+	<media destination="favslider">
+    <filename>demo/slide1.jpg</filename>
+    <filename>demo/slide2.jpg</filename>
+    <filename>demo/slide3.jpg</filename>
+    <filename>demo/slide4.jpg</filename>
+    <filename>demo/slide5.jpg</filename>
+  </media>
+
+	<help key="FavSlider Responsive Slideshow" />
+
+	<config>
+
+		<fields name="params">
+
+			<fieldset name="settings" label="Module Settings">
+
+				<field type="note" label="Slider Options" class="favtitle first" />
+
+					<field
+						name="sliderType"
+						type="list"
+						default="slidernav"
+						label="Slider Type"
+						description="Choose one of the 4 preset slider types.">
+							<option	value="basic">Basic Slider</option>
+							<option	value="slidernav">Carousel Slider</option>
+							<option	value="thumbnav">Thumbnail Slider</option>
+							<option	value="carousel">Simple Carousel</option>
+					</field>
+
+					<field
+						name="jqueryLoad"
+						type="radio"
+						default="1"
+						class="btn-group"
+						label="Load Joomla! jQuery"
+						description="Load Joomla! jQuery library. Choose 'No' if your instance loads jQuery from an eternal source.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="animationEffect"
+						type="radio"
+						default="slide"
+						class="btn-group"
+						label="Transition Effect"
+						description="Choose between FADE or SLIDE animation types for the slides.">
+							<option	value="fade">Fade</option>
+							<option	value="slide">Slide</option>
+					</field>
+
+					<field
+						name="slideHeight"
+						type="text"
+						default=""
+						label="Slide Height"
+						description="Set a fixed height for the slideshow in pixels (for example: 14, not 14px). A blank field reverts the setting to the default value." />
+
+				<field
+						name="thumbHeight"
+						type="text"
+						default=""
+						label="Thumbnail Height"
+						description="Set a fixed height for the thumbnails in pixels (for example: 14, not 14px). A blank field reverts the setting to the default value." />
+
+					<field
+						name="linkTarget"
+						type="list"
+						default="self"
+						label="URLs Target"
+						description="Select the link target for the slides.">
+							<option	value="self">_self</option>
+							<option	value="blank">_blank</option>
+							<option	value="parent">_parent</option>
+							<option	value="top">_top</option>
+					</field>
+
+				<field type="note" label="Slides Navigation" class="favtitle" />
+
+					<field
+						name="arrowNav"
+						type="radio"
+						default="1"
+						class="btn-group"
+						label="Arrow Navigation"
+						description="Navigate between slides using the previous/next arrows.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="arrowNavStyle"
+						type="radio"
+						default="dark-arrows"
+						class="btn-group"
+						label="Arrows Style"
+						description="Select the navigation arrows style.">
+							<option	value="light-arrows">Light</option>
+							<option	value="dark-arrows">Dark</option>
+					</field>
+
+					<field
+						name="controlNav"
+						type="radio"
+						default="1"
+						class="btn-group"
+						label="Control Navigation"
+						description="Navigate between slides using the control buttons.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="slideshow"
+						type="radio"
+						default="0"
+						class="btn-group"
+						label="Autorun"
+						description="This option can animate the slider automatically. Will only work for a non-video slideshow.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="randomize"
+						type="radio"
+						default="0"
+						class="btn-group"
+						label="Randomize"
+						description="Randomize the order of the slides.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="animationLoop"
+						type="radio"
+						default="1"
+						class="btn-group"
+						label="Animation Loop"
+						description="Should the animation loop? If false, previous/next navigation receive disable classes at either end.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="pauseOnHover"
+						type="radio"
+						default="1"
+						class="btn-group"
+						label="Pause On Hover"
+						description="Pause the slideshow when hovering over slider, then resume when no longer hovering over the slides. Will only work for a non-video slideshow.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="keyboardNav"
+						type="radio"
+						default="1"
+						class="btn-group"
+						label="Keyboard Navigation"
+						description="Navigate between slides using the keyboard left/right keys.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="mousewheel"
+						type="radio"
+						default="0"
+						class="btn-group"
+						label="Mouse Navigation"
+						description="Navigate between slides using the mousewheel.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="slideshowSpeed"
+						type="text"
+						default="7000"
+						label="Cycling Speed"
+						description="Set the speed of the slideshow cycling, in milliseconds. A blank field reverts the setting to the default value." />
+
+				<field type="note" label="Caption Options" class="favtitle" />
+
+					<field
+						name="captionHide"
+						type="list"
+						default="visible"
+						label="Caption Hide"
+						description="Select the devices on which the caption should be visible on.">
+							<option	value="visible">Show on all devices</option>
+							<option	value="hidden-desktop">Hide on desktop</option>
+							<option	value="hidden-tablet">Hide on tablet</option>
+							<option	value="hidden-phone">Hide on mobile</option>
+					</field>
+
+					<field
+            name="layoutEffect"
+            type="list"
+            default="layout-effect1"
+            label="Caption Effects"
+            description="Choose a CSS3 effect for the slideshow caption on page scroll and load.">
+              <option value="layout-effect-none">None</option>
+              <option value="layout-effect1">Effect1</option>
+              <option value="layout-effect2">Effect2</option>
+              <option value="layout-effect3">Effect3</option>
+              <option value="layout-effect4">Effect4</option>
+              <option value="layout-effect5">Effect5</option>
+              <option value="layout-effect6">Effect6</option>
+              <option value="layout-effect7">Effect7</option>
+              <option value="layout-effect8">Effect8</option>
+          </field>
+
+					<field
+						name="captionTextAlign"
+						type="radio"
+						default="favalign-left"
+						class="btn-group"
+						label="Caption Text Align"
+						description="Select the text align for the content of the caption.">
+							<option	value="favalign-left">Left</option>
+							<option	value="favalign-center">Center</option>
+							<option	value="favalign-right">Right</option>
+					</field>
+
+					<field
+						name="captionStyle"
+						type="radio"
+						default="favstyle-default"
+						class="btn-group"
+						label="Caption Style"
+						description="Select the caption style for the slides.">
+							<option	value="favstyle-default">Default</option>
+							<option	value="favstyle-center">Center</option>
+					</field>
+
+					<field
+						name="captionBgStyle"
+						type="list"
+						default="favstyle-bg-dark"
+						label="Caption Background Style"
+						description="Select the caption background style for the slides.">
+							<option	value="favstyle-bg-dark">Dark</option>
+							<option	value="favstyle-bg-light">Light</option>
+							<option	value="favstyle-bg-transparent">Transparent</option>
+					</field>
+
+					<field
+						name="captionWidth"
+						type="text"
+						default=""
+						label="Caption Width"
+						description="Set the width for caption. Please insert the number using pixels(px), percent(%) or em (for example: 14px, not 14). A blank field reverts the setting to the default value." />
+
+					<field
+						name="captionHeight"
+						type="text"
+						default=""
+						label="Caption Height"
+						description="Set the height for caption. Please insert the number using pixels(px), percent(%) or em (for example: 14px, not 14). A blank field reverts the setting to the default value." />
+
+				<field type="note" label="Caption Title" class="favsubtitle" />
+
+					<field
+            name="captionTitleGoogleFont"
+            type="text"
+            default="Open Sans"
+            label="Caption Title Google Font"
+            description="Copy the Google Web Font name for the caption title here, for example Open Sans or Lato. A blank field reverts the setting to the default value." />
+
+          <field
+            name="captionTitleFontSize"
+            type="text"
+            default=""
+            label="Caption Title Font Size"
+            description="Set the font size for the caption title. Please insert the number using pixels(px), percent(%) or em (for example: 14px, not 14). A blank field reverts the setting to the default value." />
+
+          <field
+						name="captionTitleTextTransform"
+						type="radio"
+						default="uppercase"
+						class="btn-group"
+						label="Caption Title Text Transform"
+						description="Set the text transform for the caption title.">
+							<option	value="none">Normal</option>
+							<option	value="uppercase">UPPERCASE</option>
+							<option	value="lowercase">lowercase</option>
+					</field>
+
+          <field
+            name="captionTitlePadding"
+            type="text"
+            default=""
+            label="Caption Title Padding"
+            description="Set the padding for the caption title. Please insert the number using pixels(px), percent(%) or em (for example: 14px, not 14). A blank field reverts the setting to the default value." />
+
+          <field
+            name="captionTitleMargin"
+            type="text"
+            default=""
+            label="Caption Title Margin"
+            description="Set the margin for the caption title. Please insert the number using pixels(px), percent(%) or em (for example: 14px, not 14). A blank field reverts the setting to the default value." />
+
+        <field type="note" label="Caption Description" class="favsubtitle" />
+
+					<field
+            name="captionDescriptionGoogleFont"
+            type="text"
+            default="Open Sans"
+            label="Caption Description Google Font"
+            description="Copy the Google Web Font name for the caption description here, for example Open Sans or Lato. A blank field reverts the setting to the default value." />
+
+          <field
+            name="captionDescriptionFontSize"
+            type="text"
+            default=""
+            label="Caption Description Font Size"
+            description="Set the font size for the caption description. Please insert the number using pixels(px), percent(%) or em (for example: 14px, not 14). A blank field reverts the setting to the default value." />
+
+        <field type="note" label="Caption Read More" class="favsubtitle" />
+
+        	<field
+            name="captionReadMoreColor"
+            class="color {required:false}"
+            type="text"
+            default=""
+            label="Caption Read More Color"
+            description="Set the color for the read more link. A blank field reverts the setting to the default value." />
+
+          <field
+            name="captionReadMoreBgColor"
+            class="color {required:false}"
+            type="text"
+            default=""
+            label="Caption Read More Background Color"
+            description="Set the background color for the read more link. A blank field reverts the setting to the default value." />
+
+	        <field
+	            name="captionReadMoreGoogleFont"
+	            type="text"
+	            default="Open Sans"
+	            label="Caption Read More Google Font"
+	            description="Copy the Google Web Font name for the caption read more link here, for example Open Sans or Lato. A blank field reverts the setting to the default value." />
+
+					<field
+            name="captionReadMorePadding"
+            type="text"
+            default=""
+            label="Caption Read More Padding"
+            description="Set the padding for the caption read more link. Please insert the number using pixels(px), percent(%) or em (for example: 14px, not 14). A blank field reverts the setting to the default value." />
+
+          <field
+            name="captionReadMoreMargin"
+            type="text"
+            default=""
+            label="Caption Read More Margin"
+            description="Set the margin for the caption read more link. Please insert the number using pixels(px), percent(%) or em (for example: 14px, not 14). A blank field reverts the setting to the default value." />
+
+			</fieldset>
+
+      <fieldset name="style" label="Module Style">
+
+      	<field type="note" label="Slide 1" class="favtitle first" />
+
+					<field
+						name="file1active"
+						type="radio"
+						default="1"
+						class="btn-group"
+						label="Slide 1 Show"
+						description="Choose if the slide should be displayed or not.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="file1type"
+						type="radio"
+						default="image"
+						class="btn-group"
+						label="Slide 1 Type"
+						description="Choose if the slide should display an image or a video.">
+							<option	value="image">Image</option>
+							<option	value="video">Video</option>
+					</field>
+
+					<field
+						name="file1"
+						type="text"
+						default="media/favslider/demo/slide1.jpg"
+						label="Slide 1 Image Location or Video ID (YouTube/Vimeo)"
+						description="Full path of the image file, without the leading slash (ex.: images/myfile.jpg) or a valid YouTube/Vimeo video ID (ex.: abcde for an URL like https://www.youtube.com/watch?v=abcde or 12345 for an URL like https://vimeo.com/12345). Leave a blank field to disable this setting." />
+
+					<field
+						name="file1alt"
+						type="text"
+						label="Slide 1 Image Alt"
+						description="Image ALT tag for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file1link"
+						type="text"
+						label="Slide 1 Image Link"
+						default=""
+						description="URL for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file1favtitle"
+						type="text"
+						label="Slide 1 Image Title Text"
+						default=""
+						description="Title text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file1favdescription"
+						type="text"
+						label="Slide 1 Image Description Text"
+						default=""
+						description="Description text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file1favreadmore"
+						type="text"
+						label="Slide 1 Image Read More Text"
+						description="Read More text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+      	<field type="note" label="Slide 2" class="favtitle" />
+
+					<field
+						name="file2active"
+						type="radio"
+						default="1"
+						class="btn-group"
+						label="Slide 2 Show"
+						description="Choose if the slide should be displayed or not.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="file2type"
+						type="radio"
+						default="image"
+						class="btn-group"
+						label="Slide 2 Type"
+						description="Choose if the slide should display an image or a video.">
+							<option	value="image">Image</option>
+							<option	value="video">Video</option>
+					</field>
+
+					<field
+						name="file2"
+						type="text"
+						default="media/favslider/demo/slide2.jpg"
+						label="Slide 2 Image Location or Video ID (YouTube/Vimeo)"
+						description="Full path of the image file, without the leading slash (ex.: images/myfile.jpg) or a valid YouTube/Vimeo video ID (ex.: abcde for an URL like https://www.youtube.com/watch?v=abcde or 12345 for an URL like https://vimeo.com/12345). Leave a blank field to disable this setting." />
+
+					<field
+						name="file2alt"
+						type="text"
+						label="Slide 2 Image Alt"
+						description="Image ALT tag for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file2link"
+						type="text"
+						label="Slide 2 Image Link"
+						description="URL for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file2favtitle"
+						type="text"
+						label="Slide 2 Image Title Text"
+						description="Title text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file2favdescription"
+						type="text"
+						label="Slide 2 Image Description Text"
+						description="Description text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file2favreadmore"
+						type="text"
+						label="Slide 2 Image Read More Text"
+						description="Read More text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+				<field type="note" label="Slide 3" class="favtitle" />
+
+					<field
+						name="file3active"
+						type="radio"
+						default="1"
+						class="btn-group"
+						label="Slide 3 Show"
+						description="Choose if the slide should be displayed or not.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="file3type"
+						type="radio"
+						default="image"
+						class="btn-group"
+						label="Slide 3 Type"
+						description="Choose if the slide should display an image or a video.">
+							<option	value="image">Image</option>
+							<option	value="video">Video</option>
+					</field>
+
+					<field
+						name="file3"
+						type="text"
+						default="media/favslider/demo/slide3.jpg"
+						label="Slide 3 Image Location or Video ID (YouTube/Vimeo)"
+						description="Full path of the image file, without the leading slash (ex.: images/myfile.jpg) or a valid YouTube/Vimeo video ID (ex.: abcde for an URL like https://www.youtube.com/watch?v=abcde or 12345 for an URL like https://vimeo.com/12345). Leave a blank field to disable this setting." />
+
+					<field
+						name="file3alt"
+						type="text"
+						label="Slide 3 Image Alt"
+						description="Image ALT tag for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file3link"
+						type="text"
+						label="Slide 3 Image Link"
+						description="URL for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file3favtitle"
+						type="text"
+						label="Slide 3 Image Title Text"
+						description="Title text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file3favdescription"
+						type="text"
+						label="Slide 3 Image Description Text"
+						description="Description text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file3favreadmore"
+						type="text"
+						label="Slide 3 Image Read More Text"
+						description="Read More text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+				<field type="note" label="Slide 4" class="favtitle" />
+
+					<field
+						name="file4active"
+						type="radio"
+						default="1"
+						class="btn-group"
+						label="Slide 4 Show"
+						description="Choose if the slide should be displayed or not.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="file4type"
+						type="radio"
+						default="image"
+						class="btn-group"
+						label="Slide 4 Type"
+						description="Choose if the slide should display an image or a video.">
+							<option	value="image">Image</option>
+							<option	value="video">Video</option>
+					</field>
+
+					<field
+						name="file4"
+						type="text"
+						default="media/favslider/demo/slide4.jpg"
+						label="Slide 4 Image Location or Video ID (YouTube/Vimeo)"
+						description="Full path of the image file, without the leading slash (ex.: images/myfile.jpg) or a valid YouTube/Vimeo video ID (ex.: abcde for an URL like https://www.youtube.com/watch?v=abcde or 12345 for an URL like https://vimeo.com/12345). Leave a blank field to disable this setting." />
+
+					<field
+						name="file4alt"
+						type="text"
+						label="Slide 4 Image Alt"
+						description="Image ALT tag for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file4link"
+						type="text"
+						label="Slide 4 Image Link"
+						description="URL for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file4favtitle"
+						type="text"
+						label="Slide 4 Image Title Text"
+						description="Title text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file4favdescription"
+						type="text"
+						label="Slide 4 Image Description Text"
+						description="Description text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file4favreadmore"
+						type="text"
+						label="Slide 4 Image Read More Text"
+						description="Read More text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+				<field type="note" label="Slide 5" class="favtitle" />
+
+					<field
+						name="file5active"
+						type="radio"
+						default="1"
+						class="btn-group"
+						label="Slide 5 Show"
+						description="Choose if the slide should be displayed or not.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="file5type"
+						type="radio"
+						default="image"
+						class="btn-group"
+						label="Slide 5 Type"
+						description="Choose if the slide should display an image or a video.">
+							<option	value="image">Image</option>
+							<option	value="video">Video</option>
+					</field>
+
+					<field
+						name="file5"
+						type="text"
+						default="media/favslider/demo/slide5.jpg"
+						label="Slide 5 Image Location or Video ID (YouTube/Vimeo)"
+						description="Full path of the image file, without the leading slash (ex.: images/myfile.jpg) or a valid YouTube/Vimeo video ID (ex.: abcde for an URL like https://www.youtube.com/watch?v=abcde or 12345 for an URL like https://vimeo.com/12345). Leave a blank field to disable this setting." />
+
+					<field
+						name="file5alt"
+						type="text"
+						label="Slide 5 Image Alt"
+						description="Image ALT tag for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file5link"
+						type="text"
+						label="Slide 5 Image Link"
+						description="URL for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file5favtitle"
+						type="text"
+						label="Slide 5 Image Title Text"
+						description="Title text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file5favdescription"
+						type="text"
+						label="Slide 5 Image Description Text"
+						description="Description text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file5favreadmore"
+						type="text"
+						label="Slide 5 Image Read More Text"
+						description="Read More text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+				<field type="note" label="Slide 6" class="favtitle" />
+
+					<field
+						name="file6active"
+						type="radio"
+						default="0"
+						class="btn-group"
+						label="Slide 6 Show"
+						description="Choose if the slide should be displayed or not.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="file6type"
+						type="radio"
+						default="image"
+						class="btn-group"
+						label="Slide 6 Type"
+						description="Choose if the slide should display an image or a video.">
+							<option	value="image">Image</option>
+							<option	value="video">Video</option>
+					</field>
+
+					<field
+						name="file6"
+						type="text"
+						default=""
+						label="Slide 6 Image Location or Video ID (YouTube/Vimeo)"
+						description="Full path of the image file, without the leading slash (ex.: images/myfile.jpg) or a valid YouTube/Vimeo video ID (ex.: abcde for an URL like https://www.youtube.com/watch?v=abcde or 12345 for an URL like https://vimeo.com/12345). Leave a blank field to disable this setting." />
+
+					<field
+						name="file6alt"
+						type="text"
+						label="Slide 6 Image Alt"
+						description="Image ALT tag for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file6link"
+						type="text"
+						label="Slide 6 Image Link"
+						description="URL for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file6favtitle"
+						type="text"
+						label="Slide 6 Image Title Text"
+						description="Title text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file6favdescription"
+						type="text"
+						label="Slide 6 Image Description Text"
+						description="Description text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file6favreadmore"
+						type="text"
+						label="Slide 6 Image Read More Text"
+						description="Read More text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+				<field type="note" label="Slide 7" class="favtitle" />
+
+					<field
+						name="file7active"
+						type="radio"
+						default="0"
+						class="btn-group"
+						label="Slide 7 Show"
+						description="Choose if the slide should be displayed or not.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="file7type"
+						type="radio"
+						default="image"
+						class="btn-group"
+						label="Slide 7 Type"
+						description="Choose if the slide should display an image or a video.">
+							<option	value="image">Image</option>
+							<option	value="video">Video</option>
+					</field>
+
+					<field
+						name="file7"
+						type="text"
+						default=""
+						label="Slide 7 Image Location or Video ID (YouTube/Vimeo)"
+						description="Full path of the image file, without the leading slash (ex.: images/myfile.jpg) or a valid YouTube/Vimeo video ID (ex.: abcde for an URL like https://www.youtube.com/watch?v=abcde or 12345 for an URL like https://vimeo.com/12345). Leave a blank field to disable this setting." />
+
+					<field
+						name="file7alt"
+						type="text"
+						label="Slide 7 Image Alt"
+						description="Image ALT tag for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file7link"
+						type="text"
+						label="Slide 7 Image Link"
+						description="URL for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file7favtitle"
+						type="text"
+						label="Slide 7 Image Title Text"
+						description="Title text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file7favdescription"
+						type="text"
+						label="Slide 7 Image Description Text"
+						description="Description text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file7favreadmore"
+						type="text"
+						label="Slide 7 Image Read More Text"
+						description="Read More text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+				<field type="note" label="Slide 8" class="favtitle" />
+
+					<field
+						name="file8active"
+						type="radio"
+						default="0"
+						class="btn-group"
+						label="Slide 8 Show"
+						description="Choose if the slide should be displayed or not.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="file8type"
+						type="radio"
+						default="image"
+						class="btn-group"
+						label="Slide 8 Type"
+						description="Choose if the slide should display an image or a video.">
+							<option	value="image">Image</option>
+							<option	value="video">Video</option>
+					</field>
+
+					<field
+						name="file8"
+						type="text"
+						default=""
+						label="Slide 8 Image Location or Video ID (YouTube/Vimeo)"
+						description="Full path of the image file, without the leading slash (ex.: images/myfile.jpg) or a valid YouTube/Vimeo video ID (ex.: abcde for an URL like https://www.youtube.com/watch?v=abcde or 12345 for an URL like https://vimeo.com/12345). Leave a blank field to disable this setting." />
+
+					<field
+						name="file8alt"
+						type="text"
+						label="Slide 8 Image Alt"
+						description="Image ALT tag for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file8link"
+						type="text"
+						label="Slide 8 Image Link"
+						description="URL for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file8favtitle"
+						type="text"
+						label="Slide 8 Image Title Text"
+						description="Title text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file8favdescription"
+						type="text"
+						label="Slide 8 Image Description Text"
+						description="Description text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file8favreadmore"
+						type="text"
+						label="Slide 8 Image Read More Text"
+						description="Read More text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+				<field type="note" label="Slide 9" class="favtitle" />
+
+					<field
+						name="file9active"
+						type="radio"
+						default="0"
+						class="btn-group"
+						label="Slide 9 Show"
+						description="Choose if the slide should be displayed or not.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="file9type"
+						type="radio"
+						default="image"
+						class="btn-group"
+						label="Slide 9 Type"
+						description="Choose if the slide should display an image or a video.">
+							<option	value="image">Image</option>
+							<option	value="video">Video</option>
+					</field>
+
+					<field
+						name="file9"
+						type="text"
+						default=""
+						label="Slide 9 Image Location or Video ID (YouTube/Vimeo)"
+						description="Full path of the image file, without the leading slash (ex.: images/myfile.jpg) or a valid YouTube/Vimeo video ID (ex.: abcde for an URL like https://www.youtube.com/watch?v=abcde or 12345 for an URL like https://vimeo.com/12345). Leave a blank field to disable this setting." />
+
+					<field
+						name="file9alt"
+						type="text"
+						label="Slide 9 Image Alt"
+						description="Image ALT tag for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file9link"
+						type="text"
+						label="Slide 9 Image Link"
+						description="URL for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file9favtitle"
+						type="text"
+						label="Slide 9 Image Title Text"
+						description="Title text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file9favdescription"
+						type="text"
+						label="Slide 9 Image Description Text"
+						description="Description text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file9favreadmore"
+						type="text"
+						label="Slide 9 Image Read More Text"
+						description="Read More text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+				<field type="note" label="Slide 10" class="favtitle" />
+
+					<field
+						name="file10active"
+						type="radio"
+						default="0"
+						class="btn-group"
+						label="Slide 10 Show"
+						description="Choose if the slide should be displayed or not.">
+							<option	value="1">Yes</option>
+							<option	value="0">No</option>
+					</field>
+
+					<field
+						name="file10type"
+						type="radio"
+						default="image"
+						class="btn-group"
+						label="Slide 10 Type"
+						description="Choose if the slide should display an image or a video.">
+							<option	value="image">Image</option>
+							<option	value="video">Video</option>
+					</field>
+
+					<field
+						name="file10"
+						type="text"
+						default=""
+						label="Slide 10 Image Location or Video ID (YouTube/Vimeo)"
+						description="Full path of the image file, without the leading slash (ex.: images/myfile.jpg) or a valid YouTube/Vimeo video ID (ex.: abcde for an URL like https://www.youtube.com/watch?v=abcde or 12345 for an URL like https://vimeo.com/12345). Leave a blank field to disable this setting." />
+
+					<field
+						name="file10alt"
+						type="text"
+						label="Slide 10 Image Alt"
+						description="Image ALT tag for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file10link"
+						type="text"
+						label="Slide 10 Image Link"
+						description="URL for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file10favtitle"
+						type="text"
+						label="Slide 10 Image Title Text"
+						description="Title text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file10favdescription"
+						type="text"
+						label="Slide 10 Image Description Text"
+						description="Description text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+					<field
+						name="file10favreadmore"
+						type="text"
+						label="Slide 10 Image Read More Text"
+						description="Read More text for this slide (only applicable for images). Leave a blank field to disable this setting." />
+
+			</fieldset>
+
+			<fieldset name="advanced">
+
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+					<option
+						value="static"></option>
+				</field>
+
+			</fieldset>
+
+		</fields>
+
+	</config>
+
+</extension>

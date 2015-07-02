@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+
+              <field name="id" type="text" default="0" label="COM_PARTNER_FORM_LBL_PARTNER_ID"
+            readonly="true" class="readonly"
+            description="JGLOBAL_FIELD_ID_DESC" /> 
+
+       <field name="created_by" type="createdby" default="" 
+            label="COM_PARTNER_FORM_LBL_PARTNER_CREATED_BY"
+            description="COM_PARTNER_FORM_DESC_PARTNER_CREATED_BY"  /> 
+
+       <field name="partner_name" type="text"
+                
+            label="COM_PARTNER_FORM_LBL_PARTNER_PARTNER_NAME"
+            description="COM_PARTNER_FORM_DESC_PARTNER_PARTNER_NAME" 
+                
+                
+                 /> 
+
+       <field name="partner_image" type="media"
+                
+            label="COM_PARTNER_FORM_LBL_PARTNER_PARTNER_IMAGE"
+            description="COM_PARTNER_FORM_DESC_PARTNER_PARTNER_IMAGE" 
+                
+                
+                 required="true" 
+            directory="partners" /> 
+
+       <field name="partner_link" type="text"
+                
+            label="COM_PARTNER_FORM_LBL_PARTNER_PARTNER_LINK"
+            description="COM_PARTNER_FORM_DESC_PARTNER_PARTNER_LINK" 
+                
+                
+                 /> 
+
+       <field name="partner_description" type="editor"
+                
+            label="COM_PARTNER_FORM_LBL_PARTNER_PARTNER_DESCRIPTION"
+            description="COM_PARTNER_FORM_DESC_PARTNER_PARTNER_DESCRIPTION" 
+                
+                
+                 /> 
+
+ </fieldset> 
+
+ <fieldset 
+                        name="accesscontrol">
+                       <field name="asset_id" type="hidden" filter="unset" />
+                       <field name="rules"
+                            type="rules"
+                            label="JFIELD_RULES_LABEL"
+                            translate_label="false"
+                            filter="rules"
+                            validate="rules"
+                            class="inputbox"
+                            component="com_partner"
+                            section="partner"
+                        />
+
+	</fieldset>
+
+</form>
