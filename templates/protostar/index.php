@@ -130,76 +130,82 @@ else
 	. ($params->get('fluidContainer') ? ' fluid' : '');
 	?>">
 
-	<!-- Header -->
-	<header>
-		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-			<!--LOGO-->
-			<a id="logo" class="brand pull-left" href="<?php echo $this->baseurl; ?>/">
-				<?php echo $logo; ?>
-				<?php if ($this->params->get('sitedescription')) : ?>
-					<?php echo '<div class="site-description">' . htmlspecialchars($this->params->get('sitedescription')) . '</div>'; ?>
-				<?php endif; ?>
-			</a>
-			<!--SEARCH-LANGUAGE-->
-			<div class="search-language">
-				<jdoc:include type="modules" name="position-0" style="none" />
-				<jdoc:include type="modules" name="language" style="none" />						
-			</div>
+	<div class="wrapper">
+		<!-- Header -->
+		<header>
+			<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+				<!--LEFT-->
+				<div class="col-md-6">
+					<a id="logo" class="brand pull-left" href="<?php echo $this->baseurl; ?>/">
+						<?php echo $logo; ?>
+						<?php if ($this->params->get('sitedescription')) : ?>
+							<?php echo '<div class="site-description">' . htmlspecialchars($this->params->get('sitedescription')) . '</div>'; ?>
+						<?php endif; ?>
+					</a>
+				</div>
 
-			<!-- menu-->
+				<!--RIGHT-->
+				<div class="col-md-6">
+					<div class="search-language">
+						<jdoc:include type="modules" name="position-0" style="none" />
+						<jdoc:include type="modules" name="language" style="none" />						
+					</div>
+				</div>
+			</div>
+		</header>
+		<!--header-->
+
+		<!--MENU-->
+		<div class="main-menu">
 			<?php if ($this->countModules('position-1')) : ?>
 					<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
 						<nav class="navigation">
 							<jdoc:include type="modules" name="position-1" style="none" />
 						</nav>
-						<div class="infor-owner">
-							Hỗ trợ: 04.22115515
-						</div>
 					</div>
 			<?php endif; ?>
-			<!-- menu-->
 		</div>
-	</header>
-	<!--header-->
 
-	<!--SLIDER HOME-->
-	<div class="slider-home">
-		<jdoc:include type="modules" name="banner" style="xhtml" />
-	</div>		
+		<!--SLIDER HOME-->
+		<div class="slider-home">
+			<jdoc:include type="modules" name="banner" style="xhtml" />
+		</div>		
 
-	<!--MAIN CONTENT-->
-	<div class="row-fluid container">	
-		<?php if ($this->countModules('position-8')) : ?>
-			<div id="sidebar" class="span3">
-				<div class="sidebar-nav">
-					<jdoc:include type="modules" name="position-8" style="xhtml" />
+		<!--MAIN CONTENT-->
+		<div class="row-fluid container">	
+			<?php if ($this->countModules('position-8')) : ?>
+				<div id="sidebar" class="span3">
+					<div class="sidebar-nav">
+						<jdoc:include type="modules" name="position-8" style="xhtml" />
+					</div>
+				</div>
+			<?php endif; ?>
+			<main id="content" role="main" class="<?php echo $span; ?>">
+				<jdoc:include type="modules" name="position-2" style="none" />
+				<jdoc:include type="modules" name="position-3" style="xhtml" />
+				<jdoc:include type="message" />
+				<jdoc:include type="component" />					
+			</main>
+			<?php if ($this->countModules('position-7')) : ?>
+				<div id="aside" class="span3">
+					<jdoc:include type="modules" name="position-7" style="well" />
+				</div>
+			<?php endif; ?>
+		</div>
+
+		<!-- Footer -->
+		<footer>
+			<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+				<jdoc:include type="modules" name="footer" style="none" />
+				<jdoc:include type="modules" name="count-visit" style="none" />
+				<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+					<p id="copy-right" style="font-weight: bold">
+						&copy; <?php echo date('Y'); ?> <?php echo $sitename; ?>
+					</p> 
 				</div>
 			</div>
-		<?php endif; ?>
-		<main id="content" role="main" class="<?php echo $span; ?>">
-			<jdoc:include type="modules" name="position-2" style="none" />
-			<jdoc:include type="modules" name="position-3" style="xhtml" />
-			<jdoc:include type="message" />
-			<jdoc:include type="component" />					
-		</main>
-		<?php if ($this->countModules('position-7')) : ?>
-			<div id="aside" class="span3">
-				<jdoc:include type="modules" name="position-7" style="well" />
-			</div>
-		<?php endif; ?>
-	</div>
+		</footer>
 
-	<!-- Footer -->
-	<footer>
-		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-			<jdoc:include type="modules" name="footer" style="none" />
-			<jdoc:include type="modules" name="count-visit" style="none" />
-			<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-				<p id="copy-right" style="font-weight: bold">
-					&copy; <?php echo date('Y'); ?> <?php echo $sitename; ?>
-				</p> 
-			</div>
-		</div>
-	</footer>
+	</div> <!--end wrapper-->
 </body>
 </html>

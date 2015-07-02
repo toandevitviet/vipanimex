@@ -7032,7 +7032,7 @@ body.site.fluid {
 .navigation .nav-pills {
 	margin-bottom: 0;
 	background: #00A1AD;
-	border-radius: 7px;
+	/* border-radius: 7px; */
 }
 .hero-unit {
 	background-color: #08C;
@@ -7962,10 +7962,10 @@ a#logo {
   margin-top: 25px;
 }
 nav.navigation {
-  float: left;
-  margin-top: 117px;
-  z-index: 2147483647;
-  position: absolute;
+  /* float: left; */
+  /* margin-top: 117px; */
+  /* z-index: 2147483647; */
+  /* position: absolute; */
   font-weight: bold;
   font-size: 15px;
   text-shadow: none;
@@ -7999,4 +7999,14 @@ li.djc_catid-9.level0.parent.deeper {
 }
 footer{
 	margin-top: 25px;
+}
+
+.wrapper {
+	width: 1170px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	-webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+	box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
 }
